@@ -1,0 +1,6 @@
+node_modules/
+project-lock.json
+.DS_Store
+pnpm-lock.yaml
+web-server/inspector
+temp/
