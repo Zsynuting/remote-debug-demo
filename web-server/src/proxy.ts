@@ -7,12 +7,12 @@ export default {
     const ws = map.get(channelId)!
     ws.on('message', (data) => {
       const msg = data.toString()
-      console.log('node sent: ', msg)
+      console.log('debugging runtime respond:', JSON.parse(msg))
       clientWs.send(msg)
     })
     clientWs.on('message', (data) => {
       const msg = data.toString()
-      console.log('client sent: ', msg)
+      console.log('devtools UI sent:', JSON.parse(msg))
       ws.send(msg)
     })
   },
