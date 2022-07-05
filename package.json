@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "npm run start:server & npm run start:ide",
+    "start:server": "cd web-server && npm run start",
+    "start:ide": "cd web-ide && npm run start",
+    "init": "unzip -o ./web-server/inspector.zip -d ./web-server",
+    "install": "npm run install:a & npm run install:b",
+    "install:a": "cd web-server && pnpm install",
+    "install:b": "cd web-ide && pnpm install"
+  }
+}

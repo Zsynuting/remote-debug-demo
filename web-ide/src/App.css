@@ -1,0 +1,9 @@
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+.editor {
+  height: calc(100% - 80px);
+}
