@@ -17,11 +17,11 @@ router.post('/debug', async (ctx, next) => {
   const filePath = path.resolve(`./temp/${fileId}.js`)
   fs.writeFileSync(filePath, code, 'utf8')
   const channelId = (await new Promise(async (resolve) => {
-    const debug = spawn('node', ['--inspect-brk=9222', filePath])
+    const debug = spawn('node', ['--inspect-brk=9229', filePath])
     debug.on('exit', () => fs.unlink(filePath, () => console.log(`${filePath} is deleted`)))
     debug.on('spawn', async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000))
-      const list = (await fetch(`http://localhost:9222/json`, { method: 'get' }).then((res) =>
+      const list = (await fetch(`http://localhost:9229/json`, { method: 'get' }).then((res) =>
         res.json(),
       )) as [{ title: string; webSocketDebuggerUrl: string; devtoolsFrontendUrl: string }]
       const instance = list[0]

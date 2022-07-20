@@ -18,7 +18,7 @@ export default {
   },
   async registry(channelId: string) {
     await new Promise((resolve) => {
-      const ws = new WebSocket(`ws://localhost:9222/${channelId}`)
+      const ws = new WebSocket(`ws://localhost:9229/${channelId}`)
       ws.on('open', () => {
         console.log('open')
         map.set(channelId, ws)

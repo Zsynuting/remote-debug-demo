@@ -33,7 +33,7 @@ exports.default = {
     registry(channelId) {
         return __awaiter(this, void 0, void 0, function* () {
             yield new Promise((resolve) => {
-                const ws = new ws_1.default(`ws://localhost:9222/${channelId}`);
+                const ws = new ws_1.default(`ws://localhost:9229/${channelId}`);
                 ws.on('open', () => {
                     console.log('open');
                     map.set(channelId, ws);

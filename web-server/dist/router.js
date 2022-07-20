@@ -52,11 +52,11 @@ router.post('/debug', (ctx, next) => __awaiter(void 0, void 0, void 0, function*
     const filePath = path_1.default.resolve(`./temp/${fileId}.js`);
     fs_1.default.writeFileSync(filePath, code, 'utf8');
     const channelId = (yield new Promise((resolve) => __awaiter(void 0, void 0, void 0, function* () {
-        const debug = (0, child_process_1.spawn)('node', ['--inspect-brk=9222', filePath]);
+        const debug = (0, child_process_1.spawn)('node', ['--inspect-brk=9229', filePath]);
         debug.on('exit', () => fs_1.default.unlink(filePath, () => console.log(`${filePath} is deleted`)));
         debug.on('spawn', () => __awaiter(void 0, void 0, void 0, function* () {
             yield new Promise((resolve) => setTimeout(resolve, 1000));
-            const list = (yield (0, node_fetch_1.default)(`http://localhost:9222/json`, { method: 'get' }).then((res) => res.json()));
+            const list = (yield (0, node_fetch_1.default)(`http://localhost:9229/json`, { method: 'get' }).then((res) => res.json()));
             const instance = list[0];
             const channelId = instance ? instance.webSocketDebuggerUrl.split('/').pop() || '' : '';
             resolve(channelId);
